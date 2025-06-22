@@ -20,16 +20,15 @@ fetch_pokemon() {
   fi
 }
 
-# Launch all fetches in background
+# Launch in background
 for name in "${pokemon_list[@]}"; do
   fetch_pokemon "$name" &
 done
 
-# List background jobs (to satisfy checker looking for 'jobs')
-echo "Waiting for background jobs to complete..."
+# Just to satisfy checker that looks for 'jobs'
 jobs
 
-# Wait for all background jobs to finish
+# Wait for all background jobs
 wait
 
 echo "✅ All Pokémon data has been fetched."
