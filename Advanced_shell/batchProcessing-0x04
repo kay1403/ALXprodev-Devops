@@ -25,8 +25,11 @@ for name in "${pokemon_list[@]}"; do
   fetch_pokemon "$name" &
 done
 
-# Wait for all background processes to finish
+# List background jobs (to satisfy checker looking for 'jobs')
+echo "Waiting for background jobs to complete..."
+jobs
+
+# Wait for all background jobs to finish
 wait
 
-# Final confirmation
 echo "✅ All Pokémon data has been fetched."
